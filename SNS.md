@@ -1,46 +1,54 @@
-# Project Title
+# AWS SNS
 
-## Table of Contents
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
 
-## About <a name = "about"></a>
+## SNS is known as Push service. <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+its mostly used in the scenarios where we have to broadcast messages since its known as
+a PUSH service
+it decouples the Pub(sender) & Sub(Reciever) in such a way that you can Publish Message to Speficic Topics and then Users Subscribed to that topic will recieve the Message simultaneously together rather than SQS in which the message is been put in a Queue in a sequence (LINEAR) way.
 
-## Getting Started <a name = "getting_started"></a>
+* User with AWS ID can request for subscriptions otherwise the Owner(who created the SNS Topic)
+* have to manually add the endpoints like email & sms.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+ARCHITECTURE:
+![Alt text](image-9.png)
 
-### Prerequisites
 
-What things you need to install the software and how to install them.
 
-```
-Give examples
-```
 
-### Installing
+
+### TOPIC--->Subscription(email & SMS) -->Publish Message
+
 
 A step by step series of examples that tell you how to get a development env running.
 
 Say what the step will be
 
 ```
-Give the example
+Click on SNS create topic(![Alt text](image-3.png))
 ```
 
-And repeat
 
 ```
-until finished
+Click on Create Subscription 
 ```
+![Alt text](image-4.png)
+
+* Similarly create subscription for SMS while selecting the protocol as SMS and adding up the phone number after verification
+
+Here are the two subscriptions
+
+![Alt text](image-8.png)
+
+Click on Publish Message under Topics to send a Message to the subscribers
+![Alt text](image-5.png)
 
 End with an example of getting some data out of the system or using it for a little demo.
 
-## Usage <a name = "usage"></a>
+## Recieved Message Screenshot
 
-Add notes about how to use the system.
+Mail: ![Alt text](image-6.png)
+
+SMS : ![Alt text](image-7.png)
+
